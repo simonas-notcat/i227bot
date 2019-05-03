@@ -1,0 +1,21 @@
+{
+  "name": "idea227",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "configure-telegram-bot": "claudia update --configure-telegram-bot --profile claudia",
+    "configure-slack-slash-app": "claudia update --configure-slack-slash-app --profile claudia",
+    "configure-fb-bot": "claudia update --configure-fb-bot --profile claudia",
+    "update": "claudia update --profile claudia",
+    "create": "claudia create --region us-east-1 --profile claudia --api-module bot"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "claudia-bot-builder": "^4.5.0",
+    "huh": "^2.0.1"
+  }
+}

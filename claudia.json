@@ -1,0 +1,11 @@
+{
+  "lambda": {
+    "role": "idea227-executor",
+    "name": "idea227",
+    "region": "us-east-1"
+  },
+  "api": {
+    "id": "m6xultnima",
+    "module": "bot"
+  }
+}
