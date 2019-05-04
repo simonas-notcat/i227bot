@@ -17,7 +17,7 @@ const api = botBuilder(function (request) {
       if (callbacks[request.originalRequest.callback_id]){
         return callbacks[request.originalRequest.callback_id](request.originalRequest)
       } else {
-        return 'callback_id not supported'
+        return 'Callback id not supported. Original message: \`\`\`\n' + JSON.stringify(request) + '\n\`\`\`'
       }
     break
     default:
