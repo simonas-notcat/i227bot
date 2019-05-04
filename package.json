@@ -1,5 +1,5 @@
 {
-  "name": "idea227",
+  "name": "idea227bot",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,13 +9,16 @@
     "configure-slack-slash-app": "claudia update --configure-slack-slash-app --profile claudia",
     "configure-fb-bot": "claudia update --configure-fb-bot --profile claudia",
     "update": "claudia update --profile claudia --cache-api-config production",
-    "create": "claudia create --region us-east-1 --profile claudia --api-module bot"
+    "create": "claudia create --region us-east-1 --profile claudia --api-module bot --allow-recursion",
+    "logs": "apilogs get --api-id 6ffhed7dd1 --profile claudia --aws-region us-east-1 --watch --stage latest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.449.0",
     "claudia-bot-builder": "^4.5.0",
-    "huh": "^2.0.1"
+    "huh": "^2.0.1",
+    "promise-delay": "^2.1.0"
   }
 }
