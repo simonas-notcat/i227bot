@@ -3,26 +3,17 @@ const blocks = [
 		"type": "section",
 		"text": {
 			"type": "plain_text",
-			"text": "Create new skill claim",
+			"text": "Create new skill request",
 			"emoji": true
 		}
 	},
 	{
-    "type": "actions",
-    "block_id": "create_new_claims",
+		"type": "actions",
+		"block_id": "create_sdr",
 		"elements": [
 			{
-        "type": "users_select",
-        "action_id": "select_user",
-				"placeholder": {
-					"type": "plain_text",
-					"text": "Select a user",
-					"emoji": true
-				}
-			},
-			{
 				"type": "static_select",
-        "action_id": "select_skill",
+				"action_id": "select_skill",
 				"placeholder": {
 					"type": "plain_text",
 					"text": "Select skill",
@@ -66,23 +57,24 @@ const blocks = [
 		]
 	},
 	{
-    "type": "actions",
-    "block_id": "create_claim",
+		"type": "actions",
+		"block_id": "post_sdr",
 		"elements": [
 			{
 				"type": "button",
+				"action_id": "post_sdr",
 				"text": {
 					"type": "plain_text",
-					"text": "Create",
+					"text": "Create request",
 					"emoji": true
 				},
-                "style": "primary",
-				"value": "create_claim"
+				"style": "primary",
+				"value": "click_me_123"
 			}
 		]
-	}    
+	}
 ]
 
-module.exports = {
-  blocks
-}
+  module.exports = {
+    blocks
+  }

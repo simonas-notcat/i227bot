@@ -91,6 +91,7 @@ const blocks = [
       },
       {
         "type": "button",
+        "action_id": "share_my_claims",
         "text": {
           "type": "plain_text",
           "emoji": true,
@@ -100,6 +101,7 @@ const blocks = [
       },
       {
         "type": "button",
+        "action_id": "create_sdr",
         "text": {
           "type": "plain_text",
           "emoji": true,
