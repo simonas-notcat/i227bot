@@ -17,14 +17,14 @@ const api = botBuilder(function (request) {
       if (callbacks[request.originalRequest.callback_id]){
         return callbacks[request.originalRequest.callback_id](request.originalRequest)
       } else {
-        return 'Callback id not supported. Original message: \`\`\`\n' + JSON.stringify(request) + '\n\`\`\`'
+        return new slackTemplate('Here').get();
       }
     break
     default:
       return 'Original message: \`\`\`\n' + JSON.stringify(request) + '\n\`\`\`'
   }
 
-});
+}, { platforms: ['slackSlashCommand'] });
 
 api.post('/slack/events', request => {
   // Verify request if challenge is sent

@@ -8,7 +8,7 @@
     "configure-telegram-bot": "claudia update --configure-telegram-bot --profile claudia",
     "configure-slack-slash-app": "claudia update --configure-slack-slash-app --profile claudia",
     "configure-fb-bot": "claudia update --configure-fb-bot --profile claudia",
-    "update": "claudia update --profile claudia",
+    "update": "claudia update --profile claudia --cache-api-config production",
     "create": "claudia create --region us-east-1 --profile claudia --api-module bot"
   },
   "keywords": [],
