@@ -3,7 +3,7 @@ const blocks = [
     "type": "section",
     "text": {
       "type": "mrkdwn",
-      "text": "Here is your profile summary from all available sources.555"
+      "text": "Here is your profile summary from all available sources."
     }
   },
   {
