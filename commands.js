@@ -4,11 +4,11 @@ var callbacks = require('./callbacks')
 
 module.exports = {
   '/gluon': (request) => {
-    return callbacks.profile(request);
+    return callbacks.help(request);
   },
 
   '/skill': (request) => {
-    return 'Skill command, with original text: ' + request.text
+    return callbacks.create_new_claims(request);
   },
 
 

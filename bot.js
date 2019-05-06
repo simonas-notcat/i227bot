@@ -5,6 +5,7 @@ const botBuilder = require('claudia-bot-builder');
 const slackDelayedReply = botBuilder.slackDelayedReply;
 
 const api = botBuilder((message, apiRequest) => {
+  console.log({message, apiRequest})
 
 
 	  // Invoke the same Lambda function asynchronously, and do not wait for the response
@@ -25,7 +26,7 @@ const api = botBuilder((message, apiRequest) => {
       });
     })
       .then(() => {
-        return 'Loading...'
+        return '...'
       })
       .catch((e) => {
         return `Could not setup timer :(` + e.message
@@ -43,7 +44,6 @@ api.intercept((event) => {
     return event;
 
   const message = event.slackEvent;
-  const seconds = parseInt(message.text, 10);
 
   return promiseDelay(1)
     .then(() => {

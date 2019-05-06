@@ -1,5 +1,6 @@
 var botBuilder = require('claudia-bot-builder')
 const slackTemplate = botBuilder.slackTemplate;
+var help = require('./messages/help')
 var profile = require('./messages/profile')
 var create_new_claim = require('./messages/create_new_claim')
 var new_claim = require('./messages/new_claim')
@@ -7,13 +8,14 @@ var share_all_claims = require('./messages/share_all_claims')
 var create_sdr = require('./messages/create_sdr')
 var post_sdr = require('./messages/post_sdr')
 var respond_to_sdr = require('./messages/respond_to_sdr')
+var connect_uport = require('./messages/connect_uport')
 
 
 module.exports = {
-  'profile': (request) => {
+  'help': (request) => {
     const message = new slackTemplate().get();
     
-    message.blocks = profile.blocks
+    message.blocks = help.blocks
     return message
   },
   
@@ -21,11 +23,17 @@ module.exports = {
     const message = new slackTemplate().get();
 
     switch(request.actions[0].action_id) {
+      case 'my_profile':
+        message.blocks = profile.blocks
+      break
       case 'create_new_skill':
         message.blocks = create_new_claim.blocks
       break
       case 'share_my_claims':
         message.blocks = share_all_claims.blocks
+      break
+      case 'connect_uport':
+        message.blocks = connect_uport.blocks
       break
       case 'create_sdr':
         message.blocks = create_sdr.blocks
@@ -39,15 +47,15 @@ module.exports = {
 
   'create_new_claims': (request) => {
     const message = new slackTemplate().get();
+    message.blocks = create_new_claim.blocks
 
-    switch(request.actions[0].action_id) {
-      case 'select_user':
-      case 'select_skill':
-        message.blocks = create_new_claim.blocks
-      break
-      default:
-        message.text = 'Unsupported action_id  \`\`\`\n' + JSON.stringify(request) + '\n\`\`\`'
-    }
+    // switch(request.actions[0].action_id) {
+    //   case 'select_user':
+    //   case 'select_skill':
+    //   break
+    //   default:
+    //     message.text = 'Unsupported action_id  \`\`\`\n' + JSON.stringify(request) + '\n\`\`\`'
+    // }
     
     return message
   },

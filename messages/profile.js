@@ -80,17 +80,6 @@ const blocks = [
     "elements": [
       {
         "type": "button",
-        "action_id": "create_new_skill",
-        "text": {
-          "type": "plain_text",
-          "emoji": true,
-          "text": "Create skill claim"
-        },
-        "style": "primary",
-        "value": "create_new_skill"
-      },
-      {
-        "type": "button",
         "action_id": "share_my_claims",
         "text": {
           "type": "plain_text",
@@ -101,14 +90,16 @@ const blocks = [
       },
       {
         "type": "button",
-        "action_id": "create_sdr",
+        "action_id": "connect_uport",
+        "url": "https://id.uport.me/req/JWT",
         "text": {
           "type": "plain_text",
           "emoji": true,
-          "text": "Find users by claims"
+          "text": "Connect uPort ID"
         },
-        "value": "create_sdr"
+        "value": "connect_uport"
       }
+
     ]
   }
 ]
