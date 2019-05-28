@@ -3,7 +3,7 @@ const slackTemplate = botBuilder.slackTemplate;
 var callbacks = require('./callbacks')
 
 module.exports = {
-  '/gluon': (request) => {
+  '/i227': (request) => {
     return callbacks.help(request);
   },
 
