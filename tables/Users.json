@@ -1,0 +1,19 @@
+{
+  "TableName": "Users",
+  "KeySchema": [
+    {
+      "AttributeName": "uniqId",
+      "KeyType": "HASH"
+    }
+  ],
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "uniqId",
+      "AttributeType": "S"
+    }
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 5,
+    "WriteCapacityUnits": 5
+  }
+}

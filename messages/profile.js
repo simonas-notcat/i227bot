@@ -1,9 +1,9 @@
-const blocks = [
+const blocks = (user) => [
   {
     "type": "section",
     "text": {
       "type": "mrkdwn",
-      "text": "Here is your profile summary from all available sources."
+      "text": "Here is your profile summary from all available sources." + user.data.dids[0].did
     }
   },
   {

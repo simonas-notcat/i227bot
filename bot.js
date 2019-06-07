@@ -5,7 +5,7 @@ const botBuilder = require('claudia-bot-builder');
 const slackDelayedReply = botBuilder.slackDelayedReply;
 
 const api = botBuilder((message, apiRequest) => {
-  console.log({message, apiRequest})
+  console.log('MESSAGE: ', JSON.stringify(message))
 
 
 	  // Invoke the same Lambda function asynchronously, and do not wait for the response
@@ -46,8 +46,9 @@ api.intercept((event) => {
   const message = event.slackEvent;
 
   return promiseDelay(1)
-    .then(() => {
-      return slackDelayedReply(message, getResponse(message))
+    .then(() => getResponse(message))
+    .then((response) => {
+      return slackDelayedReply(message, response)
     })
     .then(() => false); // prevent normal execution
 });
@@ -60,7 +61,7 @@ const slackTemplate = botBuilder.slackTemplate;
 var commands = require('./commands')
 var callbacks = require('./callbacks')
 
-const getResponse = function (request) {
+const getResponse = async (request) => {
   try {
     
     switch (request.type) {
@@ -68,7 +69,7 @@ const getResponse = function (request) {
       if (commands[request.originalRequest.command]){
         return commands[request.originalRequest.command](request.originalRequest)
       } else {
-        return 'Command not supported'
+        return 'Original message: \`\`\`\n' + JSON.stringify(request) + '\n\`\`\`'
       }
       break
       

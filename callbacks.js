@@ -9,7 +9,7 @@ var create_sdr = require('./messages/create_sdr')
 var post_sdr = require('./messages/post_sdr')
 var respond_to_sdr = require('./messages/respond_to_sdr')
 var connect_uport = require('./messages/connect_uport')
-
+var UserManager = require('./UserManager')
 
 module.exports = {
   'help': (request) => {
@@ -19,12 +19,13 @@ module.exports = {
     return message
   },
   
-  'profile_actions': (request) => {
+  'profile_actions': async (request) => {
     const message = new slackTemplate().get();
+    const user = await UserManager.getUser('slack', `slack_${request.user.id}_${request.user.team_id}`)
 
     switch(request.actions[0].action_id) {
       case 'my_profile':
-        message.blocks = profile.blocks
+        message.blocks = profile.blocks(user)
       break
       case 'create_new_skill':
         message.blocks = create_new_claim.blocks

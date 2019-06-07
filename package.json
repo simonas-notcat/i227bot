@@ -10,15 +10,19 @@
     "configure-fb-bot": "claudia update --configure-fb-bot --profile claudia",
     "update": "claudia update --profile claudia --cache-api-config production",
     "create": "claudia create --region us-east-1 --profile claudia --api-module bot --allow-recursion",
-    "logs": "apilogs get --api-id 6ffhed7dd1 --profile claudia --aws-region us-east-1 --watch --stage latest"
+    "logs": "apilogs get --api-id 6ffhed7dd1 --profile claudia --aws-region us-east-1 --watch --stage latest",
+    "create-users-table": "aws dynamodb create-table --profile claudia --region us-east-1 --cli-input-json file://tables/Users.json",
+    "create-vc-table": "aws dynamodb create-table --profile claudia --region us-east-1 --cli-input-json file://tables/VerifiableClaims.json"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "^2.449.0",
+    "blakejs": "^1.1.0",
     "claudia-bot-builder": "^4.5.0",
     "huh": "^2.0.1",
+    "nacl-did": "^0.4.0",
     "promise-delay": "^2.1.0"
   }
 }
